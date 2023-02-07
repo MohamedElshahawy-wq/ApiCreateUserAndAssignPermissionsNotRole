@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "mCNSPzlGc8iByt00rQ4MZUyhHvFzI7KHOx8FWvEvmlg=",
+  "Source": "ApiCreateUserAndAssignPermissionsNotRole",
+  "BasePath": "_content/ApiCreateUserAndAssignPermissionsNotRole",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
