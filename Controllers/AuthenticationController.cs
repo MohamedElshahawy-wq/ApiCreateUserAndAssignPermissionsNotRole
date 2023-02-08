@@ -1,8 +1,12 @@
 ﻿using ApiCreateUserAndAssignPermissionsNotRole.Models;
+using ApiCreateUserAndAssignPermissionsNotRole.Seeds;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.Win32;
+using PermissionBasedAuthorizationIntDotNet5.Contants;
+using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
@@ -33,9 +37,13 @@ namespace ApiCreateUserAndAssignPermissionsNotRole.Controllers
 
         [HttpPost]
         [Route("CreateUser")]
+        //public async Task<IActionResult> CreateUser([FromBody] RegisterModel model, [FromBody] IEnumerable<Permissions> SeedPermissions)
         public async Task<IActionResult> CreateUser([FromBody] RegisterModel model)
+
         {
+            //var emailExists = await _userManager.FindByEmailAsync(model.Email);
             var emailExists = await _userManager.FindByEmailAsync(model.Email);
+
             if (emailExists != null)
                 return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "Email already exists!" });
 
@@ -43,11 +51,14 @@ namespace ApiCreateUserAndAssignPermissionsNotRole.Controllers
             IdentityUser user = new()
             {
                 Email = model.Email,
-                UserName=model.UserName,
+                UserName = model.UserName,
                 //SecurityStamp = Guid.NewGuid().ToString(),
+
             };
-             var result= await _userManager.CreateAsync(user,model.Password);
-            //await _context.SaveChangesAsync();
+            var result = await _userManager.CreateAsync(user, model.Password);
+            //  await _userManager.AddClaimAsync(user, new Claim("Permissions", Permissions.Products.View));
+            //  await _userManager.AddClaimsAsync(user, (IEnumerable<Claim>)SeedPermissions);
+
 
 
             return StatusCode(StatusCodes.Status200OK,
@@ -60,11 +71,11 @@ namespace ApiCreateUserAndAssignPermissionsNotRole.Controllers
         [Route("login")]
         public async Task<IActionResult> Login([FromBody] LoginModel model)
         {
-        
+
             var user = await _userManager.FindByEmailAsync(model.Email);
             if (user != null && await _userManager.CheckPasswordAsync(user, model.Password))
             {
-               // var userRole = await _userManager.GetRolesAsync(user);
+                // var userRole = await _userManager.GetRolesAsync(user);
                 //var userRoles = await _userManager.GetRolesAsync(user);
 
                 var authClaims = new List<Claim>
@@ -108,6 +119,22 @@ namespace ApiCreateUserAndAssignPermissionsNotRole.Controllers
                 );
 
             return token;
+        }
+
+
+        //assign permissins
+        [HttpPost]
+        [Route("AssignPermissions")]
+        public async Task<string> AssignPermissions(Permission model)
+        {
+           var user = await _userManager.FindByIdAsync(model.UserId);
+            if(user == null)
+            {
+                return "Invalid userId";
+            }
+            await _userManager.AddClaimAsync(user, new Claim("Permissionss", "ViewProduct"));
+
+                return "succedd ..........";
         }
     }
 }

@@ -1,5 +1,7 @@
+using ApiCreateUserAndAssignPermissionsNotRole.Controllers;
 using ApiCreateUserAndAssignPermissionsNotRole.Models;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
@@ -62,7 +64,6 @@ builder.Services.AddAuthentication(options =>
     options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
 })
 
-
 // Adding Jwt Bearer
 .AddJwtBearer(options =>
 {
@@ -78,6 +79,7 @@ builder.Services.AddAuthentication(options =>
     };
 });
 
+builder.Services.AddTransient<ProductController>();
 
 
 var app = builder.Build();

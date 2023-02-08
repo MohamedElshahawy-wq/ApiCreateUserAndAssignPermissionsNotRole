@@ -1,5 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
+using PermissionBasedAuthorizationIntDotNet5.Contants;
+using System.Collections.Generic;
 
 namespace ApiCreateUserAndAssignPermissionsNotRole.Models
 {
@@ -17,5 +19,7 @@ namespace ApiCreateUserAndAssignPermissionsNotRole.Models
         public string? Password { get; set; }
 
         public string? UserName { get; set; }
+
+
     }
 }

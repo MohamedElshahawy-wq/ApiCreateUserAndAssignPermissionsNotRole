@@ -2,8 +2,13 @@
 
 namespace ApiCreateUserAndAssignPermissionsNotRole.Controllers
 {
-    public class ProductsController : Controller
+    [Route("api/[controller]")]
+    [ApiController]
+    public class ProductController : Controller
     {
+        
+        [Route("Product")]
+        [HttpGet]
         public IActionResult Index()
         {
             return View();
