@@ -37,7 +37,6 @@ namespace ApiCreateUserAndAssignPermissionsNotRole.Controllers
 
         [HttpPost]
         [Route("CreateUser")]
-        //public async Task<IActionResult> CreateUser([FromBody] RegisterModel model, [FromBody] IEnumerable<Permissions> SeedPermissions)
         public async Task<IActionResult> CreateUser([FromBody] RegisterModel model)
 
         {
@@ -127,14 +126,14 @@ namespace ApiCreateUserAndAssignPermissionsNotRole.Controllers
         [Route("AssignPermissions")]
         public async Task<string> AssignPermissions(Permission model)
         {
-           var user = await _userManager.FindByIdAsync(model.UserId);
-            if(user == null)
+            var user = await _userManager.FindByIdAsync(model.UserId);
+            if (user == null)
             {
                 return "Invalid userId";
             }
             await _userManager.AddClaimAsync(user, new Claim("Permissionss", "ViewProduct"));
 
-                return "succedd ..........";
+            return "succedd ..........";
         }
     }
 }

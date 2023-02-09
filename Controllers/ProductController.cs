@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 
 namespace ApiCreateUserAndAssignPermissionsNotRole.Controllers
 {
@@ -6,8 +7,7 @@ namespace ApiCreateUserAndAssignPermissionsNotRole.Controllers
     [ApiController]
     public class ProductController : Controller
     {
-        
-        [Route("Product")]
+      
         [HttpGet]
         public IActionResult Index()
         {
