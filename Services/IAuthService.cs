@@ -1,6 +1,7 @@
 ﻿using ApiCreateUserAndAssignPermissionsNotRole.Models;
 using System.Threading.Tasks;
 using ApiCreateUserAndAssignPermissionsNotRole.Models;
+using PermissionBasedAuthorizationIntDotNet5.Models;
 
 namespace ApiCreateUserAndAssignPermissionsNotRole.Services
 {
@@ -11,7 +12,7 @@ namespace ApiCreateUserAndAssignPermissionsNotRole.Services
 
         Task<string> AddPermissionAsync(Permission model);
 
-        Task<string> AddPermissionAsync2(string UserId);
+        Task<string> AddPermissionAsync2(SetPermissions model);
 
 
     }

@@ -8,6 +8,7 @@ using System.Security.Claims;
 using System.Text;
 using Microsoft.Extensions.Options;
 using PermissionBasedAuthorizationIntDotNet5.Contants;
+using PermissionBasedAuthorizationIntDotNet5.Models;
 
 namespace ApiCreateUserAndAssignPermissionsNotRole.Services
 {
@@ -134,9 +135,9 @@ namespace ApiCreateUserAndAssignPermissionsNotRole.Services
         }
 
 
-        public async Task<string> AddPermissionAsync2(string UserId)
+        public async Task<string> AddPermissionAsync2(SetPermissions model)
         {
-            var user = await _userManager.FindByIdAsync(UserId);
+            var user = await _userManager.FindByIdAsync(model.UserId);
             if (user == null)
             {
                 return "Invalid userId";

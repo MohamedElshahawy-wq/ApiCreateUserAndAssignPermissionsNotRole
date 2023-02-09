@@ -2,6 +2,7 @@
 using ApiCreateUserAndAssignPermissionsNotRole.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using PermissionBasedAuthorizationIntDotNet5.Models;
 
 namespace ApiCreateUserAndAssignPermissionsNotRole.Controllers
 {
@@ -56,12 +57,12 @@ namespace ApiCreateUserAndAssignPermissionsNotRole.Controllers
         }
 
         [HttpPost("SetPermissionnn2")]
-        public async Task<IActionResult> SetPermissionn2(string UserId)
+        public async Task<IActionResult> SetPermissionn2(SetPermissions model)
         {
-            if (UserId == null)
+            if (model.UserId == null)
                 return BadRequest();
 
-            var res = await _authService.AddPermissionAsync2(UserId);
+            var res = await _authService.AddPermissionAsync2(model);
             return Ok(res);
 
         }
