@@ -9,6 +9,7 @@ namespace ApiCreateUserAndAssignPermissionsNotRole.Models
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
       : base(options)
         {
+
         }
 
         public virtual DbSet<LoginModel> Login { get; set; }

@@ -14,6 +14,6 @@ namespace ApiCreateUserAndAssignPermissionsNotRole.Services
 
         Task<string> AddPermissionAsync2(SetPermissions model);
 
-
+        
     }
 }

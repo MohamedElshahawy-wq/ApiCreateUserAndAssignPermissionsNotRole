@@ -1,7 +1,10 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ApiCreateUserAndAssignPermissionsNotRole.Controllers
 {
+    //sign by email (MHamdy95@gmail.com) and pass (P@ssword123) As user
+    [Authorize(Roles ="User")]
     [ApiController]
     [Route("[controller]")]
     public class WeatherForecastController : ControllerBase

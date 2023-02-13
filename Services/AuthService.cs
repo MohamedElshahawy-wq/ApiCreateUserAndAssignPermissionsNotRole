@@ -23,8 +23,15 @@ namespace ApiCreateUserAndAssignPermissionsNotRole.Services
             _jwt = jwt.Value;
         }
 
-     
 
+
+
+
+
+
+
+     
+        //get token by email and password
         public async Task<AuthModel> GetTokenAsync(TokenRequestModel model)
         {
             var authModel = new AuthModel();
@@ -38,17 +45,27 @@ namespace ApiCreateUserAndAssignPermissionsNotRole.Services
             }
 
             var jwtSecurityToken = await CreateJwtToken(user);
-            //var rolesList = await _userManager.GetRolesAsync(user);
+         
+            var rolesList = await _userManager.GetRolesAsync(user);
+            var permissions = await _userManager.GetClaimsAsync(user);
+
 
             authModel.IsAuthenticated = true;
             authModel.Token = new JwtSecurityTokenHandler().WriteToken(jwtSecurityToken);
             authModel.Email = user.Email;
             authModel.Username = user.UserName;
             authModel.ExpiresOn = jwtSecurityToken.ValidTo;
-            //authModel.Roles = rolesList.ToList();
 
+            // authModel.Roles = rolesList.ToList();
+            authModel.Permissions = (List<string>?)permissions;
             return authModel;
         }
+
+
+
+
+
+
 
         public async Task<AuthModel> RegisterAsync(RegisterModel model)
         {
@@ -77,6 +94,8 @@ namespace ApiCreateUserAndAssignPermissionsNotRole.Services
 
                 return new AuthModel { Message = errors };
             }
+            //    await _userManager.AddToRoleAsync(user, "User");
+            await _userManager.AddClaimAsync(user, new Claim("permission","ViewWeather temp"));
             var jwtSecurityToken = await CreateJwtToken(user);
 
             return new AuthModel
@@ -84,20 +103,31 @@ namespace ApiCreateUserAndAssignPermissionsNotRole.Services
                 Email = user.Email,
                 ExpiresOn = jwtSecurityToken.ValidTo,
                 IsAuthenticated = true,
-                // Roles = new List<string> { "User" },
+              //  Roles = new List<string> { "User" },
+              Permissions = new List<> { "ViewWeather temp" },
                 Token = new JwtSecurityTokenHandler().WriteToken(jwtSecurityToken),
                 Username = user.UserName
             };
 
         }
+
+
+
+
+
+
+        //create with first and last name 
+        //logic is get role calims assign claims to roles create key + token it self (key+publisher+udience)
         public async Task<JwtSecurityToken> CreateJwtToken(ApplicationUser user)
         {
             var userClaims = await _userManager.GetClaimsAsync(user);
-              var roles = await _userManager.GetRolesAsync(user);
-            var roleClaims = new List<Claim>();
+            // var roles = await _userManager.GetRolesAsync(user);
 
-            foreach (var role in roles)
-                roleClaims.Add(new Claim("roles", role));
+            //****************************************************************************
+            //    var roleClaims = new List<Claim>();
+            //add permissions to role
+            //foreach (var role in roles)
+            //    roleClaims.Add(new Claim("roles", role));
 
             var claims = new[]
             {
@@ -107,7 +137,8 @@ namespace ApiCreateUserAndAssignPermissionsNotRole.Services
                 new Claim("uid", user.Id)
             }
             .Union(userClaims);
-            // .Union(roleClaims);
+           // .Union(roleClaims);
+            //****************************************************************************
 
             var symmetricSecurityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_jwt.Key));
             var signingCredentials = new SigningCredentials(symmetricSecurityKey, SecurityAlgorithms.HmacSha256);
@@ -122,6 +153,14 @@ namespace ApiCreateUserAndAssignPermissionsNotRole.Services
             return jwtSecurityToken;
         }
 
+
+
+
+
+
+
+
+
         public async Task<string> AddPermissionAsync(Permission model)
         {
             var user = await _userManager.FindByIdAsync(model.UserId);
@@ -133,6 +172,13 @@ namespace ApiCreateUserAndAssignPermissionsNotRole.Services
 
             return "succedd ..........";
         }
+
+
+
+
+
+
+
 
 
         public async Task<string> AddPermissionAsync2(SetPermissions model)
