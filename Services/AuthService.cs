@@ -47,7 +47,7 @@ namespace ApiCreateUserAndAssignPermissionsNotRole.Services
             var jwtSecurityToken = await CreateJwtToken(user);
          
             var rolesList = await _userManager.GetRolesAsync(user);
-            var permissions = await _userManager.GetClaimsAsync(user);
+        //    var permissions = await _userManager.GetClaimsAsync(user);
 
 
             authModel.IsAuthenticated = true;
@@ -57,7 +57,7 @@ namespace ApiCreateUserAndAssignPermissionsNotRole.Services
             authModel.ExpiresOn = jwtSecurityToken.ValidTo;
 
             // authModel.Roles = rolesList.ToList();
-            authModel.Permissions = (List<string>?)permissions;
+         //   authModel.Permissions = (List<string>?)permissions;
             return authModel;
         }
 
@@ -95,7 +95,7 @@ namespace ApiCreateUserAndAssignPermissionsNotRole.Services
                 return new AuthModel { Message = errors };
             }
             //    await _userManager.AddToRoleAsync(user, "User");
-            await _userManager.AddClaimAsync(user, new Claim("permission","ViewWeather temp"));
+           // await _userManager.AddClaimAsync(user, new Claim("permission","ViewWeather temp"));
             var jwtSecurityToken = await CreateJwtToken(user);
 
             return new AuthModel
@@ -104,7 +104,7 @@ namespace ApiCreateUserAndAssignPermissionsNotRole.Services
                 ExpiresOn = jwtSecurityToken.ValidTo,
                 IsAuthenticated = true,
               //  Roles = new List<string> { "User" },
-              Permissions = new List<> { "ViewWeather temp" },
+             // Permissions = new List<> { "ViewWeather temp" },
                 Token = new JwtSecurityTokenHandler().WriteToken(jwtSecurityToken),
                 Username = user.UserName
             };
@@ -188,7 +188,7 @@ namespace ApiCreateUserAndAssignPermissionsNotRole.Services
             {
                 return "Invalid userId";
             }
-            await _userManager.AddClaimAsync(user, new Claim("Permissionss" ,"blabla"));
+            await _userManager.AddClaimAsync(user, new Claim("Permissionss" , "ViewCategories"));
 
             return "succedd ..........";
         }

@@ -1,0 +1,25 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\m.elshehawy\\source\\repos\\ApiCreateUserAndAssignPermissionsNotRole\\wwwroot\\StudentData.xlsx",
+      "PackagePath": "staticwebassets\\StudentData.xlsx"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.ApiCreateUserAndAssignPermissionsNotRole.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.build.ApiCreateUserAndAssignPermissionsNotRole.props",
+      "PackagePath": "build\\ApiCreateUserAndAssignPermissionsNotRole.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.buildMultiTargeting.ApiCreateUserAndAssignPermissionsNotRole.props",
+      "PackagePath": "buildMultiTargeting\\ApiCreateUserAndAssignPermissionsNotRole.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.buildTransitive.ApiCreateUserAndAssignPermissionsNotRole.props",
+      "PackagePath": "buildTransitive\\ApiCreateUserAndAssignPermissionsNotRole.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

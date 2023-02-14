@@ -28,6 +28,8 @@ builder.Services.AddDbContext<ApplicationDbContext>(x => x.UseSqlServer(connecti
 
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddScoped<IAuthService, AuthService>();
+builder.Services.AddScoped<IUploadExcelAndSaveItInDbService, UploadExcelAndSaveItInDbService>();
+
 
 //to map custom class jwt as obj in app to use it in services
 builder.Services.Configure<JWT>(configuration.GetSection("JWT"));

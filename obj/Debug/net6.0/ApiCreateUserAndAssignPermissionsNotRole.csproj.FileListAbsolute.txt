@@ -64,3 +64,14 @@ C:\Users\m.elshehawy\source\repos\ApiCreateUserAndAssignPermissionsNotRole\bin\D
 C:\Users\m.elshehawy\source\repos\ApiCreateUserAndAssignPermissionsNotRole\bin\Debug\net6.0\Microsoft.AspNetCore.Identity.UI.dll
 C:\Users\m.elshehawy\source\repos\ApiCreateUserAndAssignPermissionsNotRole\obj\Debug\net6.0\ApiCreateUserAndAssignPermissionsNotRole.RazorAssemblyInfo.cache
 C:\Users\m.elshehawy\source\repos\ApiCreateUserAndAssignPermissionsNotRole\obj\Debug\net6.0\ApiCreateUserAndAssignPermissionsNotRole.RazorAssemblyInfo.cs
+C:\Users\m.elshehawy\source\repos\ApiCreateUserAndAssignPermissionsNotRole\obj\Debug\net6.0\staticwebassets\msbuild.ApiCreateUserAndAssignPermissionsNotRole.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\m.elshehawy\source\repos\ApiCreateUserAndAssignPermissionsNotRole\obj\Debug\net6.0\staticwebassets\msbuild.build.ApiCreateUserAndAssignPermissionsNotRole.props
+C:\Users\m.elshehawy\source\repos\ApiCreateUserAndAssignPermissionsNotRole\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.ApiCreateUserAndAssignPermissionsNotRole.props
+C:\Users\m.elshehawy\source\repos\ApiCreateUserAndAssignPermissionsNotRole\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.ApiCreateUserAndAssignPermissionsNotRole.props
+C:\Users\m.elshehawy\source\repos\ApiCreateUserAndAssignPermissionsNotRole\obj\Debug\net6.0\staticwebassets.pack.json
+C:\Users\m.elshehawy\source\repos\ApiCreateUserAndAssignPermissionsNotRole\bin\Debug\net6.0\ExcelDataReader.dll
+C:\Users\m.elshehawy\source\repos\ApiCreateUserAndAssignPermissionsNotRole\bin\Debug\net6.0\ExcelDataReader.DataSet.dll
+C:\Users\m.elshehawy\source\repos\ApiCreateUserAndAssignPermissionsNotRole\bin\Debug\net6.0\PdfSharp.Charting.dll
+C:\Users\m.elshehawy\source\repos\ApiCreateUserAndAssignPermissionsNotRole\bin\Debug\net6.0\PdfSharp.dll
+C:\Users\m.elshehawy\source\repos\ApiCreateUserAndAssignPermissionsNotRole\bin\Debug\net6.0\de\PdfSharp.Charting.resources.dll
+C:\Users\m.elshehawy\source\repos\ApiCreateUserAndAssignPermissionsNotRole\bin\Debug\net6.0\de\PdfSharp.resources.dll

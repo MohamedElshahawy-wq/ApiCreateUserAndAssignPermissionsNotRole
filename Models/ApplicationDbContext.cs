@@ -14,6 +14,8 @@ namespace ApiCreateUserAndAssignPermissionsNotRole.Models
 
         public virtual DbSet<LoginModel> Login { get; set; }
         public virtual DbSet<RegisterModel> Register { get; set; }
+        public virtual DbSet<StudentData> StudentsData { get; set; }
+
 
     }
 }

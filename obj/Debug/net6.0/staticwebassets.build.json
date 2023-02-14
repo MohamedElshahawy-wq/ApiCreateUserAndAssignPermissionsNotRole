@@ -1,12 +1,20 @@
 {
   "Version": 1,
-  "Hash": "7w71hTYiynorEOeBCESGMWuHjouxSWEajCVqYuXW5qQ=",
+  "Hash": "9PUn37D8Psq+i2gwZp0GvOFt2AU4lDajTTDBok8MnWI=",
   "Source": "ApiCreateUserAndAssignPermissionsNotRole",
   "BasePath": "_content/ApiCreateUserAndAssignPermissionsNotRole",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
-  "DiscoveryPatterns": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "ApiCreateUserAndAssignPermissionsNotRole\\wwwroot",
+      "Source": "ApiCreateUserAndAssignPermissionsNotRole",
+      "ContentRoot": "C:\\Users\\m.elshehawy\\source\\repos\\ApiCreateUserAndAssignPermissionsNotRole\\wwwroot\\",
+      "BasePath": "_content/ApiCreateUserAndAssignPermissionsNotRole",
+      "Pattern": "**"
+    }
+  ],
   "Assets": [
     {
       "Identity": "C:\\Users\\m.elshehawy\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\6.0.0\\staticwebassets\\V5\\css\\site.css",
@@ -1027,6 +1035,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\m.elshehawy\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\6.0.0\\staticwebassets\\V5\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Identity": "C:\\Users\\m.elshehawy\\source\\repos\\ApiCreateUserAndAssignPermissionsNotRole\\wwwroot\\StudentData.xlsx",
+      "SourceId": "ApiCreateUserAndAssignPermissionsNotRole",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\m.elshehawy\\source\\repos\\ApiCreateUserAndAssignPermissionsNotRole\\wwwroot\\",
+      "BasePath": "_content/ApiCreateUserAndAssignPermissionsNotRole",
+      "RelativePath": "StudentData.xlsx",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\StudentData.xlsx"
     }
   ]
 }
